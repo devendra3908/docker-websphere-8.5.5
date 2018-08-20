@@ -15,13 +15,15 @@ RUN mkdir /opt/software/IBM/installer-package
 RUN mkdir /opt/software/IBM/was
 RUN mkdir /opt/WebSphere85/
 
-ADD agent.installer.linux.gtk.x86_64_1.6.2000.20130301_2248.zip /tmp/agent.installer.linux.gtk.x86_64_1.6.2000.20130301_2248.zip
+#ADD agent.installer.linux.gtk.x86_64_1.6.2000.20130301_2248.zip /tmp/agent.installer.linux.gtk.x86_64_1.6.2000.20130301_2248.zip
+ADD agent.installer.linux.gtk.x86_64_1.8.9000.20180313_1417.zip /tmp/agent.installer.linux.gtk.x86_64_1.8.9000.20180313_1417.zip
+
 ADD was.repo.8550.developers.ilan_part1.zip /tmp/was.repo.8550.developers.ilan_part1.zip
 ADD was.repo.8550.developers.ilan_part2.zip /tmp/was.repo.8550.developers.ilan_part2.zip
 ADD was.repo.8550.developers.ilan_part3.zip /tmp/was.repo.8550.developers.ilan_part3.zip
 ADD startWebsphere.sh /tmp/startWebsphere.sh
 
-RUN unzip /tmp/agent.installer.linux.gtk.x86_64_1.6.2000.20130301_2248.zip -d /opt/software/IBM/installer-package
+RUN unzip /tmp/agent.installer.linux.gtk.x86_64_1.8.9000.20180313_1417.zip -d /opt/software/IBM/installer-package
 RUN unzip /tmp/was.repo.8550.developers.ilan_part1.zip -d /opt/software/IBM/was
 RUN unzip /tmp/was.repo.8550.developers.ilan_part2.zip -d /opt/software/IBM/was
 RUN unzip /tmp/was.repo.8550.developers.ilan_part3.zip -d /opt/software/IBM/was
