@@ -13,10 +13,10 @@ pipeline {
         sh 'mvn -version'
       }
     }
-     stage('Docker Build image for Operating System') {
+     stage('Docker Build image for centos Operating System') {
       agent any
       steps {
-	          sh "docker build -t devendra3908/dockerwebsphere8.5.5:latest ."
+	     sh "docker build -t devendra3908/centoswebsphere8.5.5:latest ."
       }
     }
   }
