@@ -46,6 +46,7 @@ RUN installUtility install --acceptLicense microProfile-1.3 \
 
 # Create symlinks && set permissions for non-root user
 RUN mkdir /logs \
+    && mkdir /opt/ibm/wlp/installTmp \
     && ln -s $WLP_OUTPUT_DIR/defaultServer /output \
     && ln -s /opt/ibm/wlp/usr/servers/defaultServer /config  \
     && ln -s /opt/ibm /liberty \
@@ -57,10 +58,14 @@ RUN mkdir /logs \
     && chmod -R g+rwx /opt/ibm/docker/docker-server \
     && chown -R 1001:0 /opt/ibm/wlp/usr/servers/defaultServer \
     && chmod -R g+rw /opt/ibm/wlp/usr/servers/defaultServer \
+    && chmod -R g+rw /opt/ibm/wlp/installTmp \
     && chown -R 1001:0 /opt/ibm/wlp/output \
     && chmod -R g+rw /opt/ibm/wlp/output \
     && chown -R 1001:0 /logs \
     && chmod -R g+rw /logs
+    
+# Install adminCenter
+RUN installUtility install adminCenter-1.0
 
 USER 1001
 
